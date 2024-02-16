@@ -4,7 +4,7 @@ import user from './assets/user.svg'
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 
-const fetch_url = 'http://localhost:5000'
+const fetch_url = 'https://datchatgpt.onrender.com'
 
 let loadInterval
 
