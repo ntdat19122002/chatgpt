@@ -4,6 +4,8 @@ import user from './assets/user.svg'
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 
+const fetch_url = 'https://datchatgpt.onrender.com'
+
 let loadInterval
 
 function loader(element) {
@@ -86,7 +88,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://datchatgpt.onrender.com', {
+    const response = await fetch(fetch_url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
