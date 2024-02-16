@@ -4,7 +4,7 @@ import user from './assets/user.svg'
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 
-const fetch_url = 'https://datchatgpt.onrender.com'
+const fetch_url = 'http://localhost:5000'
 
 let loadInterval
 
@@ -103,9 +103,11 @@ const handleSubmit = async (e) => {
 
     if (response.ok) {
         const data = await response.json();
-        const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+        const parsedData = data.gpt_info.choices[0].text.trim() // trims any trailing spaces/'\n' 
 
         typeText(messageDiv, parsedData)
+
+        showData(data.gpt_info)
     } else {
         const err = await response.text()
 
@@ -120,3 +122,14 @@ form.addEventListener('keyup', (e) => {
         handleSubmit(e)
     }
 })
+
+const showData = (data) => {
+    document.getElementById('id').innerText=data.id
+    document.getElementById('object').innerText=data.object
+    document.getElementById('created').innerText=data.created
+    document.getElementById('model').innerText=data.model
+    document.getElementById('choices').innerText=JSON.stringify(data.choices)
+    document.getElementById('usage').innerHTML=`<div class='sub-parameter-item'>Promt token: ${data.usage.prompt_tokens}</div>
+                                                <div class='sub-parameter-item'>Completion token: ${data.usage.completion_tokens}</div>
+                                                <div class='sub-parameter-item'>Total token: ${data.usage.total_tokens}</div>`
+}

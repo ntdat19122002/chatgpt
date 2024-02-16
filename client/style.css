@@ -9,10 +9,10 @@
 
 body {
   background: #343541;
+  display: flex;
 }
 
 #app {
-  width: 100vw;
   height: 100vh;
   background: #343541;
 
@@ -147,4 +147,50 @@ button {
 form img {
   width: 30px;
   height: 30px;
+}
+
+/* parameter */
+.parameter{
+  height: 100vh;
+  background: #6e6f7e;
+  color:  white;
+  padding: 20px;
+  position: relative;;
+}
+
+.parameter-item{
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.parameter-item span{
+  color: #c2d384;
+}
+
+.sub-parameter-item{
+  margin-left: 30px;
+}
+
+.parameter-toggle{
+  background-color: #6e6f7e;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  padding: 10px 15px;
+  left:-16px;
+  font-weight: 800;
+}
+
+.open-app{
+  width: 100vw;
+  transition: 1s ease;
+}
+.close-app{
+  width: 80vw;
+  transition: 1s ease;
+}
+
+.open-parameter{
+  width: 20vw;
+  transition: 1s ease;
 }
